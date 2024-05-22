@@ -1,4 +1,6 @@
-﻿namespace wellAI
+﻿using System.Windows.Forms;
+
+namespace wellAI
 {
     partial class WellAI
     {
@@ -31,7 +33,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(WellAI));
             this.botonEnviar = new Sunny.UI.UIButton();
             this.textBoxMessage = new Sunny.UI.UITextBox();
-            this.richTextBoxChat = new Sunny.UI.UIRichTextBox();
+            this.flowLayoutPanelChat = new Sunny.UI.UIFlowLayoutPanel();
             this.SuspendLayout();
             // 
             // botonEnviar
@@ -62,28 +64,27 @@
             this.textBoxMessage.Text = "Chatea con WellAI";
             this.textBoxMessage.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
             this.textBoxMessage.Watermark = "";
+            this.textBoxMessage.KeyDown += new KeyEventHandler(this.textBoxMessage_KeyDown);
             // 
-            // richTextBoxChat
+            // flowLayoutPanelChat
             // 
-            this.richTextBoxChat.FillColor = System.Drawing.Color.White;
-            this.richTextBoxChat.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.richTextBoxChat.Location = new System.Drawing.Point(13, 14);
-            this.richTextBoxChat.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.richTextBoxChat.MinimumSize = new System.Drawing.Size(1, 1);
-            this.richTextBoxChat.Name = "richTextBoxChat";
-            this.richTextBoxChat.Padding = new System.Windows.Forms.Padding(2);
-            this.richTextBoxChat.ScrollBarStyleInherited = false;
-            this.richTextBoxChat.ShowText = false;
-            this.richTextBoxChat.Size = new System.Drawing.Size(1046, 568);
-            this.richTextBoxChat.TabIndex = 2;
-            this.richTextBoxChat.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            this.flowLayoutPanelChat.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.flowLayoutPanelChat.Location = new System.Drawing.Point(13, 14);
+            this.flowLayoutPanelChat.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.flowLayoutPanelChat.MinimumSize = new System.Drawing.Size(1, 1);
+            this.flowLayoutPanelChat.Name = "flowLayoutPanelChat";
+            this.flowLayoutPanelChat.Padding = new System.Windows.Forms.Padding(2);
+            this.flowLayoutPanelChat.ShowText = false;
+            this.flowLayoutPanelChat.Size = new System.Drawing.Size(1046, 578);
+            this.flowLayoutPanelChat.TabIndex = 0;
+            this.flowLayoutPanelChat.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // WellAI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1072, 666);
-            this.Controls.Add(this.richTextBoxChat);
+            this.Controls.Add(this.flowLayoutPanelChat);
             this.Controls.Add(this.textBoxMessage);
             this.Controls.Add(this.botonEnviar);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -97,7 +98,7 @@
 
         private Sunny.UI.UIButton botonEnviar;
         private Sunny.UI.UITextBox textBoxMessage;
-        private Sunny.UI.UIRichTextBox richTextBoxChat;
+        private Sunny.UI.UIFlowLayoutPanel flowLayoutPanelChat;
     }
 }
 

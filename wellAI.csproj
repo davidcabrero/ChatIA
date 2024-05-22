@@ -57,6 +57,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="RoundedPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="WellAI.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -19,6 +19,10 @@ namespace wellAI
         {
             MaximizeBox = false;
             InitializeComponent();
+            // Configura el FlowLayoutPanel
+            flowLayoutPanelChat.AutoScroll = true;
+            flowLayoutPanelChat.WrapContents = false;
+            flowLayoutPanelChat.FlowDirection = FlowDirection.TopDown;
         }
 
         private static readonly HttpClient client = new HttpClient();
@@ -32,16 +36,43 @@ namespace wellAI
                 return;
             }
 
-            AppendMessage("Tú: " + userMessage);
+            AddMessageToChat("Tú: " + userMessage, true);
             textBoxMessage.Clear();
 
             string responseMessage = await SendMessageToChatbotAPI(userMessage);
-            AppendMessage("IA: " + responseMessage);
+            AddMessageToChat("WellAI: " + responseMessage, false);
         }
 
-        private void AppendMessage(string message)
+        private void textBoxMessage_KeyDown(object sender, KeyEventArgs e)
         {
-            richTextBoxChat.AppendText(message + Environment.NewLine);
+            if (e.KeyCode == Keys.Enter)
+            {
+                botonEnviar.PerformClick();
+                e.SuppressKeyPress = true; // Evita que se inserte una nueva línea en el TextBox
+            }
+        }
+
+        private void AddMessageToChat(string message, bool isUser)
+        {
+            var messagePanel = new RoundedPanel
+            {
+                CornerRadius = 8,
+                Padding = new Padding(10),
+                Margin = new Padding(10),
+                BackColor = isUser ? Color.LightGreen : Color.LightBlue,
+                AutoSize = true
+            };
+
+            var messageLabel = new Label
+            {
+                Text = message,
+                AutoSize = true,
+                MaximumSize = new Size(flowLayoutPanelChat.Width - 40, 0)
+            };
+
+            messagePanel.Controls.Add(messageLabel);
+            flowLayoutPanelChat.Controls.Add(messagePanel);
+            flowLayoutPanelChat.ScrollControlIntoView(messagePanel);
         }
 
         static async Task<string> SendMessageToChatbotAPI(string message)
