@@ -13,10 +13,11 @@ using System.Windows.Forms;
 
 namespace wellAI
 {
-    public partial class Form1 : Form
+    public partial class WellAI : Form
     {
-        public Form1()
+        public WellAI()
         {
+            MaximizeBox = false;
             InitializeComponent();
         }
 

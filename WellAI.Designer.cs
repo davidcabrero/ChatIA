@@ -1,6 +1,6 @@
 ﻿namespace wellAI
 {
-    partial class Form1
+    partial class WellAI
     {
         /// <summary>
         /// Variable del diseñador necesaria.
@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(WellAI));
             this.botonEnviar = new Sunny.UI.UIButton();
             this.textBoxMessage = new Sunny.UI.UITextBox();
             this.richTextBoxChat = new Sunny.UI.UIRichTextBox();
@@ -77,7 +78,7 @@
             this.richTextBoxChat.TabIndex = 2;
             this.richTextBoxChat.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // Form1
+            // WellAI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -85,8 +86,9 @@
             this.Controls.Add(this.richTextBoxChat);
             this.Controls.Add(this.textBoxMessage);
             this.Controls.Add(this.botonEnviar);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Name = "WellAI";
+            this.Text = "WellAI";
             this.ResumeLayout(false);
 
         }
